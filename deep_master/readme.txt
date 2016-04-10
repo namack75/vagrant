@@ -1,6 +1,9 @@
 Things to do:
 YouTube Video: https://www.youtube.com/watch?v=NLclMKYomJ4
 
+Vagrant & VirtualBox Guest Additions Plugin
+    -> vagrant plugin install vagrant-vbguest
+
 Setup AWS:
     -> aws configure
 
