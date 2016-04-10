@@ -19,3 +19,7 @@ Copy DeepMarkit_Private.pem to local .ssh folder
     - Paste in the key
     -> chmod 600 ~/.ssh/DeepMarkit_Private.pem
     -> chown vagrant:vagrant ~/.ssh/DeepMarkit_Private.pem
+
+Push authorized keys to Vms for no password SSH
+    -> cat ~/.ssh/id_rsa.pub | ssh vagrant@10.15.20.65 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
+    
