@@ -1,0 +1,23 @@
+Vagrant.configure(2) do |config|
+    # Configure the VM
+    config.vm.box = "ubuntu/trusty64"
+    config.vm.provider "virtualbox" do |vb|
+        vb.name = "Vagrant_Che"
+        vb.memory = "2048"
+        vb.cpus = 2
+        vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+        vb.customize ["modifyvm", :id, "--pae", "on"]
+        vb.customize ["modifyvm", :id, "--paravirtprovider", "hyperv"]
+    end
+
+    # Configure the access ports
+    config.vm.network "private_network", ip: "10.15.20.70"
+    config.vm.network "forwarded_port", host: 8080, guest: 8080
+    # Configure all ports require
+    for i in 32700..32800
+        config.vm.network "forwarded_port", host: i, guest: i
+    end
+
+    # Configure post execution
+    config.vm.provision :shell, path: "bootstrap.sh"
+end
