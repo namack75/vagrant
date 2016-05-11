@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#maven http://dannytsang.co.uk/install-latest-maven-on-ubuntu-14-04/
+
 # Initial Setup
 add-apt-repository -y ppa:webupd8team/java
 apt-add-repository -y ppa:ansible/ansible
